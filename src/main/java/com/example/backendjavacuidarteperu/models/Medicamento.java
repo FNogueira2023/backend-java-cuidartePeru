@@ -4,6 +4,7 @@ package com.example.backendjavacuidarteperu.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "medicamento")
@@ -26,10 +27,16 @@ public class Medicamento {
     @OneToOne(mappedBy = "medicamento")
     private InventarioDeposito inventarioDeposito;
 
+    @OneToMany(mappedBy = "medicamento")
+    private List<DetalleCompra> detalleCompras;
+
+    @OneToMany(mappedBy = "medicamento")
+    private List<DetalleVenta> detalleVentas;
+
     public Medicamento() {
     }
 
-    public Medicamento(Integer id, String nombre, Date fecha_registrado, Date fecha_vencimiento, String descripcion, String imagen, String categoria, String laboratorio, InventarioDeposito inventarioDeposito) {
+    public Medicamento(Integer id, String nombre, Date fecha_registrado, Date fecha_vencimiento, String descripcion, String imagen, String categoria, String laboratorio, InventarioDeposito inventarioDeposito, List<DetalleCompra> detalleCompras, List<DetalleVenta> detalleVentas) {
         this.id = id;
         this.nombre = nombre;
         this.fecha_registrado = fecha_registrado;
@@ -39,8 +46,17 @@ public class Medicamento {
         this.categoria = categoria;
         Laboratorio = laboratorio;
         this.inventarioDeposito = inventarioDeposito;
+        this.detalleCompras = detalleCompras;
+        this.detalleVentas = detalleVentas;
     }
 
+    public List<DetalleVenta> getDetalleVentas() {
+        return detalleVentas;
+    }
+
+    public void setDetalleVentas(List<DetalleVenta> detalleVentas) {
+        this.detalleVentas = detalleVentas;
+    }
 
     public InventarioDeposito getInventarioDeposito() {
         return inventarioDeposito;
@@ -112,5 +128,13 @@ public class Medicamento {
 
     public void setLaboratorio(String laboratorio) {
         Laboratorio = laboratorio;
+    }
+
+    public List<DetalleCompra> getDetalleCompras() {
+        return detalleCompras;
+    }
+
+    public void setDetalleCompras(List<DetalleCompra> detalleCompras) {
+        this.detalleCompras = detalleCompras;
     }
 }

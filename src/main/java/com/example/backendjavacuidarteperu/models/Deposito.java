@@ -7,21 +7,21 @@ import jakarta.persistence.Id;
 public class Deposito {
 
     @Id
-    private Integer id;
+    private Integer id_deposito;
 
 
     public Deposito() {
     }
 
-    public Deposito(Integer id) {
-        this.id = id;
+    public Deposito(Integer id_deposito) {
+        this.id_deposito = id_deposito;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_deposito() {
+        return id_deposito;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_deposito(Integer id) {
+        this.id_deposito = id;
     }
 }

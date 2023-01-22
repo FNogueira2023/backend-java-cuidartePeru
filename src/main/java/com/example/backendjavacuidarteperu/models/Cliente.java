@@ -2,44 +2,40 @@ package com.example.backendjavacuidarteperu.models;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-
 @Entity
-public class Empleado {
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Integer id_empleado;
+    private Integer id_cliente;
 
     @Basic
     private String nombre;
+
     private String apellido;
+
     private String celular;
+
     private String email;
+
     private String password;
 
-    @OneToMany(mappedBy = "empleado")
-    private List<Compra> compras;
-
-    @OneToMany(mappedBy = "empleado")
+    @OneToMany(mappedBy = "cliente")
     private List<Venta> ventas;
 
-    public Empleado() {
+    public Cliente() {
     }
 
-
-    public Empleado(Integer id_empleado, String nombre, String apellido, String celular, String email, String password, List<Compra> compras, List<Venta> ventas) {
-        this.id_empleado = id_empleado;
+    public Cliente(Integer id_cliente, String nombre, String apellido, String celular, String email, String password, List<Venta> ventas) {
+        this.id_cliente = id_cliente;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.email = email;
         this.password = password;
-        this.compras = compras;
         this.ventas = ventas;
     }
 
@@ -51,21 +47,12 @@ public class Empleado {
         this.ventas = ventas;
     }
 
-    public List<Compra> getCompras() {
-        return compras;
+    public Integer getId_cliente() {
+        return id_cliente;
     }
 
-    public void setCompras(List<Compra> compras) {
-        this.compras = compras;
-    }
-
-
-    public Integer getId_empleado() {
-        return id_empleado;
-    }
-
-    public void setId_empleado(Integer id) {
-        this.id_empleado = id;
+    public void setId_cliente(Integer id_cliente) {
+        this.id_cliente = id_cliente;
     }
 
     public String getNombre() {

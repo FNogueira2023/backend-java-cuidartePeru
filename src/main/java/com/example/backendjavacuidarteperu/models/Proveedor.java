@@ -3,6 +3,7 @@ package com.example.backendjavacuidarteperu.models;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Proveedor {
@@ -10,7 +11,7 @@ public class Proveedor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Integer id;
+    private Integer id_proveedor;
 
     @Basic
     private String nombre;
@@ -18,33 +19,33 @@ public class Proveedor {
     private String celular;
 
     @OneToMany(mappedBy = "proveedor")
-    private ArrayList<Compra> compras;
+    private List<Compra> compras;
 
     public Proveedor() {
     }
 
-    public Proveedor(Integer id, String nombre, String apellido, String celular, ArrayList<Compra> compras) {
-        this.id = id;
+    public Proveedor(Integer id_proveedor, String nombre, String apellido, String celular, ArrayList<Compra> compras) {
+        this.id_proveedor = id_proveedor;
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
         this.compras = compras;
     }
 
-    public ArrayList<Compra> getCompras() {
+    public List<Compra> getCompras() {
         return compras;
     }
 
-    public void setCompras(ArrayList<Compra> compras) {
+    public void setCompras(List<Compra> compras) {
         this.compras = compras;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getId_proveedor() {
+        return id_proveedor;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId_proveedor(Integer id) {
+        this.id_proveedor = id;
     }
 
     public String getNombre() {

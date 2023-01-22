@@ -3,6 +3,7 @@ package com.example.backendjavacuidarteperu.models;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Compra {
@@ -23,14 +24,18 @@ public class Compra {
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
+    @OneToMany(mappedBy = "compra")
+    private List<DetalleCompra> detalleCompras;
+
     public Compra() {
     }
 
-    public Compra(Integer id_compra, Date fecha, Proveedor proveedor, Empleado empleado) {
+    public Compra(Integer id_compra, Date fecha, Proveedor proveedor, Empleado empleado, List<DetalleCompra> detalleCompras) {
         this.id_compra = id_compra;
         this.fecha = fecha;
         this.proveedor = proveedor;
         this.empleado = empleado;
+        this.detalleCompras = detalleCompras;
     }
 
     public Integer getId_compra() {
@@ -63,5 +68,13 @@ public class Compra {
 
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
+    }
+
+    public List<DetalleCompra> getDetalleCompras() {
+        return detalleCompras;
+    }
+
+    public void setDetalleCompras(List<DetalleCompra> detalleCompras) {
+        this.detalleCompras = detalleCompras;
     }
 }

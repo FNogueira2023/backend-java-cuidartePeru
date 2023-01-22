@@ -1,9 +1,7 @@
 package com.example.backendjavacuidarteperu.services;
 
 import com.example.backendjavacuidarteperu.models.Compra;
-import com.example.backendjavacuidarteperu.models.Empleado;
 import com.example.backendjavacuidarteperu.repositories.CompraRepository;
-import com.example.backendjavacuidarteperu.repositories.EmpleadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
