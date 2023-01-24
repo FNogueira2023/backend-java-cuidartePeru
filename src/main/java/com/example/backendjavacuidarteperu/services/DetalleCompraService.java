@@ -34,4 +34,15 @@ public class DetalleCompraService {
             return false;
         }
     }
+
+    // by PRECIOS_MAYORES_A
+    public ArrayList<DetalleCompra> findByPrecioIsGreaterThan(Integer precio) {
+        return this.detalleCompraRepository.findByPrecioIsGreaterThan(precio);
+    }
+
+
+    // by PRECIOS_MENORES_A
+    public ArrayList<DetalleCompra> findByStockIsLessThan(Integer precio) {
+        return this.detalleCompraRepository.findByPrecioIsLessThan(precio);
+    }
 }

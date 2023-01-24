@@ -20,11 +20,6 @@ public class MedicamentoController {
         return this.medicamentoService.findAll();
     }
 
-    // by CATEGORIA
-//    @GetMapping(path = "/busquedaPorCategoria")
-//    public ArrayList<Medicamento> findByCategory(@RequestParam String categoria) {
-//        return medicamentoService.findByCategory(categoria);
-//    }
 
     @GetMapping(path = "/{id}")
     public Optional<Medicamento> findOne(@PathVariable("id") Integer id) {
@@ -32,13 +27,25 @@ public class MedicamentoController {
     }
 
     @PostMapping(path = "/create", consumes = {"application/json"})
-    public Medicamento create (@RequestBody Medicamento medicamento) {
+    public Medicamento create(@RequestBody Medicamento medicamento) {
         return this.medicamentoService.create(medicamento);
     }
 
     @DeleteMapping(path = "{id}")
-    public boolean delete(@PathVariable("id") Integer id ) {
+    public boolean delete(@PathVariable("id") Integer id) {
         return this.medicamentoService.destroy(id);
+    }
+
+    // by CATEGORIA
+    @GetMapping(path = "/busquedaPorCategoria")
+    public ArrayList<Medicamento> findByCategory(@RequestParam String categoria) {
+        return this.medicamentoService.findByCategory(categoria);
+    }
+
+    // by DESCRIPCION
+    @GetMapping(path = "/busquedaPorDescripcion")
+    public ArrayList<Medicamento> findByDescripcion(@RequestParam String descripcion) {
+        return this.medicamentoService.findByDescripcion(descripcion);
     }
 
 }
