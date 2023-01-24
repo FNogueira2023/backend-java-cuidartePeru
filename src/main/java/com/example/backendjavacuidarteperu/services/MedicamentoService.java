@@ -19,22 +19,6 @@ public class MedicamentoService {
         return (ArrayList<Medicamento>) medicamentoRepository.findAll();
     }
 
-    // by CATEGORIA
-//    public ArrayList<Medicamento> findByCategory(String categoria) {
-//        return medicamentoRepository.findByCategoria(categoria);
-//    }
-
-    // by LABORATORIO
-//    public ArrayList<Medicamento> findByLaboratory (String laboratorio) {
-//        return (ArrayList<Medicamento>) medicamentoRepository.findByLaboratorioContains(laboratorio);
-//    }
-//
-//    // by DESCRIPCION
-//
-//    public ArrayList<Medicamento> findByDescripcion (String descripcion) {
-//        return (ArrayList<Medicamento>) medicamentoRepository.findByDescripcionContains(descripcion);
-//    }
-
     public Medicamento create(Medicamento medicamento) {
         return medicamentoRepository.save(medicamento);
     }
@@ -50,6 +34,27 @@ public class MedicamentoService {
         } catch (Exception error) {
             return false;
         }
+    }
+
+
+    //    by NOMBRE
+    public ArrayList<Medicamento> findByName(String nombre) {
+        return medicamentoRepository.findByNombreContains(nombre);
+    }
+
+    //     by CATEGORIA
+    public ArrayList<Medicamento> findByCategory(String categoria) {
+        return medicamentoRepository.findByCategoria(categoria);
+    }
+
+    //     by LABORATORIO
+    public ArrayList<Medicamento> findByLaboratory(String laboratorio) {
+        return (ArrayList<Medicamento>) medicamentoRepository.findByLaboratorioContains(laboratorio);
+    }
+
+    // by DESCRIPCION
+    public ArrayList<Medicamento> findByDescripcion(String descripcion) {
+        return (ArrayList<Medicamento>) medicamentoRepository.findByDescripcionContains(descripcion);
     }
 
 
