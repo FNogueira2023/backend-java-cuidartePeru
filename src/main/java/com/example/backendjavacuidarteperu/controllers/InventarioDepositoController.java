@@ -1,10 +1,7 @@
 package com.example.backendjavacuidarteperu.controllers;
 
 import com.example.backendjavacuidarteperu.models.InventarioDeposito;
-import com.example.backendjavacuidarteperu.models.Medicamento;
-
 import com.example.backendjavacuidarteperu.services.InventarioDepositoService;
-import com.example.backendjavacuidarteperu.services.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,6 @@
 package com.example.backendjavacuidarteperu.controllers;
 
 import com.example.backendjavacuidarteperu.models.Compra;
-import com.example.backendjavacuidarteperu.models.Empleado;
 import com.example.backendjavacuidarteperu.services.CompraService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

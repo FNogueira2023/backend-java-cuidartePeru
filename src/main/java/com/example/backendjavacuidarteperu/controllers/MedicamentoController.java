@@ -20,6 +20,12 @@ public class MedicamentoController {
         return this.medicamentoService.findAll();
     }
 
+    // by CATEGORIA
+//    @GetMapping(path = "/busquedaPorCategoria")
+//    public ArrayList<Medicamento> findByCategory(@RequestParam String categoria) {
+//        return medicamentoService.findByCategory(categoria);
+//    }
+
     @GetMapping(path = "/{id}")
     public Optional<Medicamento> findOne(@PathVariable("id") Integer id) {
         return this.medicamentoService.findOne(id);
