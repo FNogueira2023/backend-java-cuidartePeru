@@ -1,5 +1,7 @@
 package com.example.backendjavacuidarteperu.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -16,14 +18,17 @@ public class Compra {
     @Temporal(TemporalType.TIME)
     private Date fecha;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_proveedor")
     private Proveedor proveedor;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "compra")
     private List<DetalleCompra> detalleCompras;
 

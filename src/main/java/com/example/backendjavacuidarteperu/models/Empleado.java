@@ -1,5 +1,6 @@
 package com.example.backendjavacuidarteperu.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -22,9 +23,11 @@ public class Empleado {
     private String email;
     private String password;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "empleado")
     private List<Compra> compras;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "empleado")
     private List<Venta> ventas;
 

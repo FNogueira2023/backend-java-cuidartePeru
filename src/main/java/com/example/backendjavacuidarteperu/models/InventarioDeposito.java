@@ -1,5 +1,6 @@
 package com.example.backendjavacuidarteperu.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,12 +11,13 @@ public class InventarioDeposito {
     @Column(unique = true, nullable = false)
     private Integer id_inventario_deposito;
 
+    @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_deposito")
     private Deposito deposito;
 
     @OneToOne
-    @JoinColumn(name = "inventario_id_medicamento")
+    @JoinColumn(name = "inventario_id_medicamento" )
     private Medicamento medicamento;
 
     @Basic
