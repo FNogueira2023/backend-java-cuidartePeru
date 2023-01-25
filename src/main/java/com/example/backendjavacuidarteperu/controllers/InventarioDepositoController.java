@@ -34,4 +34,17 @@ public class InventarioDepositoController {
     public boolean delete(@PathVariable("id") Integer id ) {
         return this.inventarioDepositoService.destroy(id);
     }
+
+
+    // by STOCK_MENOR_A
+    @GetMapping(path = "/stockMenorA")
+    public ArrayList<InventarioDeposito> findByStockIsLessThan(@RequestParam Integer cantidadStock) {
+        return this.inventarioDepositoService.findByStockIsLessThan(cantidadStock);
+    }
+
+    // by STOCK_MAYOR_A
+    @GetMapping(path = "/stockMayorA")
+    public ArrayList<InventarioDeposito> findByStockIsGreaterThan(@RequestParam Integer cantidadStock) {
+        return this.inventarioDepositoService.findByStockIsGreaterThan(cantidadStock);
+    }
 }

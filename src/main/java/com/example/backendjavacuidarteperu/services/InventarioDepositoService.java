@@ -33,5 +33,18 @@ public class InventarioDepositoService {
         } catch (Exception error) {
             return false;
         }
+
     }
+
+    // by STOCK_MENOR_A
+    public ArrayList<InventarioDeposito> findByStockIsLessThan(Integer cantidadStock) {
+        return this.inventarioDepositoRepository.findByStockIsLessThan(cantidadStock);
+    }
+
+    // by STOCK_MAYOR_A
+    public ArrayList<InventarioDeposito> findByStockIsGreaterThan(Integer cantidadStock) {
+        return this.inventarioDepositoRepository.findByStockIsGreaterThan(cantidadStock);
+    }
+
+
 }
