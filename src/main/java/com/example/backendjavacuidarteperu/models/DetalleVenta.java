@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "detalle_venta")
 public class DetalleVenta {
 
     @Id
@@ -12,8 +13,10 @@ public class DetalleVenta {
     private Integer id_detalle_venta;
 
     @Basic
+    @Column(name = "PRECIO")
     private Float precio;
 
+    @Column(name = "CANTIDAD")
     private Integer cantidad;
 
     @JsonBackReference

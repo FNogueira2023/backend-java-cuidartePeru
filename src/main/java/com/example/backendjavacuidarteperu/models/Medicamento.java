@@ -17,11 +17,18 @@ public class Medicamento {
     private Integer id;
 
     @Basic
+    @Column(name = "NOMBRE")
     private String nombre;
+    @Temporal(TemporalType.DATE)
+    @Column(name = "FECHA_REGISTRADO")
     private Date fecha_registrado;
+    @Column(name = "DESCRIPCION")
     private String descripcion;
+    @Column(name = "IMAGEN")
     private String imagen;
+    @Column(name = "CATEGORIA")
     private String categoria;
+    @Column(name = "LABORATORIO")
     private String Laboratorio;
 
 //    ERROR : More than one row with the given identifier was found: 14;

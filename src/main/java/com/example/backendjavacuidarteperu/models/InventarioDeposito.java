@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "inventario_deposito")
 public class InventarioDeposito {
 
     @Id
@@ -21,6 +22,7 @@ public class InventarioDeposito {
     private Medicamento medicamento;
 
     @Basic
+    @Column(name = "STOCK")
     private Integer stock;
 
     public InventarioDeposito() {

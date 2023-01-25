@@ -2,8 +2,10 @@ package com.example.backendjavacuidarteperu.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "deposito")
 public class Deposito {
 
     @Id

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
 
     @Id
@@ -14,14 +15,19 @@ public class Cliente {
     private Integer id_cliente;
 
     @Basic
+    @Column(name = "NOMBRE")
     private String nombre;
 
+    @Column(name = "APELLIDO")
     private String apellido;
 
+    @Column(name = "CELULAR")
     private String celular;
 
+    @Column(name = "EMAIL")
     private String email;
 
+    @Column(name = "PASSWORD")
     private String password;
 
     @JsonManagedReference

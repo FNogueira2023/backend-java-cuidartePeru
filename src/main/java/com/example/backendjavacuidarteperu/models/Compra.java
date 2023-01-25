@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "compra")
 public class Compra {
 
     @Id
@@ -15,7 +16,8 @@ public class Compra {
     @Column(unique = true, nullable = false)
     private Integer id_compra;
 
-    @Temporal(TemporalType.TIME)
+    @Temporal(TemporalType.DATE)
+    @Column(name = "FECHA")
     private Date fecha;
 
     @JsonBackReference

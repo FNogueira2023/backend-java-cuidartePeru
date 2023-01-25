@@ -3,12 +3,11 @@ package com.example.backendjavacuidarteperu.models;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
 @Entity
+@Table(name = "empleado")
 public class Empleado {
 
     @Id
@@ -17,10 +16,15 @@ public class Empleado {
     private Integer id_empleado;
 
     @Basic
+    @Column(name = "NOMBRE")
     private String nombre;
+    @Column(name = "APELLIDO")
     private String apellido;
+    @Column(name = "CELULAR")
     private String celular;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "PASSWORD")
     private String password;
 
     @JsonManagedReference

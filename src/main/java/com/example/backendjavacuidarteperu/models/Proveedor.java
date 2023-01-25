@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name = "proveedor")
 public class Proveedor {
 
     @Id
@@ -15,8 +16,11 @@ public class Proveedor {
     private Integer id_proveedor;
 
     @Basic
+    @Column(name = "NOMBRE")
     private String nombre;
+    @Column(name = "APELLIDO")
     private String apellido;
+    @Column(name = "CELULAR")
     private String celular;
 
     @JsonManagedReference
