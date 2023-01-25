@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @RestController
@@ -35,4 +36,9 @@ public class CompraController {
         return this.compraService.destroy(id);
     }
 
+//    by FECHA
+    @GetMapping(path = "/busquedaPorFechas", consumes = {"application/json"})
+    public ArrayList<Compra> findByFechaBetween(@RequestBody Date primeraFecha, Date segundaFecha) {
+        return this.compraService.findByFechaBetween(primeraFecha, segundaFecha);
+    }
 }

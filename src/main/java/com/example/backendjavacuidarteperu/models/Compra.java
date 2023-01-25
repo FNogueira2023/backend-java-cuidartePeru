@@ -1,10 +1,11 @@
 package com.example.backendjavacuidarteperu.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Entity
@@ -15,8 +16,11 @@ public class Compra {
     @Column(unique = true, nullable = false)
     private Integer id_compra;
 
-    @Temporal(TemporalType.TIME)
-    private Date fecha;
+
+//    JSON parse error: Cannot deserialize value of type `java.util.Date` from Object value (token `JsonToken.START_OBJECT`) Error para el ByDateBetween
+    @JsonFormat(pattern="yyyy-MM-dd", shape = JsonFormat.Shape.OBJECT)
+    @Temporal(TemporalType.DATE)
+    private SimpleDateFormat fecha;
 
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
@@ -35,7 +39,7 @@ public class Compra {
     public Compra() {
     }
 
-    public Compra(Integer id_compra, Date fecha, Proveedor proveedor, Empleado empleado, List<DetalleCompra> detalleCompras) {
+    public Compra(Integer id_compra, SimpleDateFormat fecha, Proveedor proveedor, Empleado empleado, List<DetalleCompra> detalleCompras) {
         this.id_compra = id_compra;
         this.fecha = fecha;
         this.proveedor = proveedor;
@@ -51,11 +55,11 @@ public class Compra {
         this.id_compra = id_compra;
     }
 
-    public Date getFecha() {
+    public SimpleDateFormat getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(SimpleDateFormat fecha) {
         this.fecha = fecha;
     }
 
