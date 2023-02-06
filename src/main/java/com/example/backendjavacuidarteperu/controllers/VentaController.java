@@ -16,11 +16,13 @@ public class VentaController {
     VentaService ventaService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<Venta> findAll() {
         return this.ventaService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<Venta> findOne(@PathVariable("id") Integer id) {
         return this.ventaService.findOne(id);
     }

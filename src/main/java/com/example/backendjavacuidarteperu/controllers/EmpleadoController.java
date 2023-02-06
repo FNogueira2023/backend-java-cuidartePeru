@@ -16,11 +16,13 @@ public class EmpleadoController {
     EmpleadoService empleadoService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<Empleado> findAll() {
         return this.empleadoService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<Empleado> findOne(@PathVariable("id") Integer id) {
         return this.empleadoService.findOne(id);
     }

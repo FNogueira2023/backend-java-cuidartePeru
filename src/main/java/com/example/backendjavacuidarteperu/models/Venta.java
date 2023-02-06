@@ -20,6 +20,9 @@ public class Venta {
     @Column(name = "FECHA")
     private Date fecha;
 
+    @Column(name = "TOTAL_VENTA")
+    private Float total_venta;
+
     @JsonBackReference
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "venta_id_empleado")

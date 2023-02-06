@@ -15,11 +15,13 @@ public class ProveedorController {
     ProveedorService proveedorService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<Proveedor> findAll() {
         return this.proveedorService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<Proveedor> findOne(@PathVariable("id") Integer id) {
         return this.proveedorService.findOne(id);
     }

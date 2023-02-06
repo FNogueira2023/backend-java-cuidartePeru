@@ -9,8 +9,8 @@ import java.util.ArrayList;
 @Repository
 public interface DetalleCompraRepository extends CrudRepository<DetalleCompra, Integer> {
 
-    public abstract ArrayList<DetalleCompra> findByPrecioIsGreaterThan(Integer precio);
+    public abstract ArrayList<DetalleCompra> findByPrecioIsGreaterThan(Float precio);
 
-    public abstract ArrayList<DetalleCompra> findByPrecioIsLessThan(Integer precio);
+    public abstract ArrayList<DetalleCompra> findByPrecioIsLessThan(Float precio);
 
 }

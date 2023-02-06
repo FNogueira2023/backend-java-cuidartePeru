@@ -16,11 +16,13 @@ public class InventarioDepositoController {
     InventarioDepositoService inventarioDepositoService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<InventarioDeposito> findAll() {
         return this.inventarioDepositoService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<InventarioDeposito> findOne(@PathVariable("id") Integer id) {
         return this.inventarioDepositoService.findOne(id);
     }
@@ -38,12 +40,14 @@ public class InventarioDepositoController {
 
     // by STOCK_MENOR_A
     @GetMapping(path = "/stockMenorA")
+    @ResponseBody
     public ArrayList<InventarioDeposito> findByStockIsLessThan(@RequestParam Integer cantidadStock) {
         return this.inventarioDepositoService.findByStockIsLessThan(cantidadStock);
     }
 
     // by STOCK_MAYOR_A
     @GetMapping(path = "/stockMayorA")
+    @ResponseBody
     public ArrayList<InventarioDeposito> findByStockIsGreaterThan(@RequestParam Integer cantidadStock) {
         return this.inventarioDepositoService.findByStockIsGreaterThan(cantidadStock);
     }

@@ -17,11 +17,13 @@ public class CompraController {
     CompraService compraService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<Compra> findAll() {
         return this.compraService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<Compra> findOne(@PathVariable("id") Integer id) {
         return this.compraService.findOne(id);
     }
@@ -36,9 +38,11 @@ public class CompraController {
         return this.compraService.destroy(id);
     }
 
-//    by FECHA
+
+    //  by FECHA_BETWEEN
+    //  Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'
     @GetMapping(path = "/busquedaPorFechas", consumes = {"application/json"})
-    public ArrayList<Compra> findByFechaBetween(@RequestBody Date primeraFecha, Date segundaFecha) {
+    public ArrayList<Compra> findByFechaBetween(@RequestParam Date primeraFecha, Date segundaFecha) {
         return this.compraService.findByFechaBetween(primeraFecha, segundaFecha);
     }
 }

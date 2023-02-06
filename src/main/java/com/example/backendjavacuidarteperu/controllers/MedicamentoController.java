@@ -16,12 +16,14 @@ public class MedicamentoController {
     MedicamentoService medicamentoService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<Medicamento> findAll() {
         return this.medicamentoService.findAll();
     }
 
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<Medicamento> findOne(@PathVariable("id") Integer id) {
         return this.medicamentoService.findOne(id);
     }
@@ -38,12 +40,14 @@ public class MedicamentoController {
 
     // by CATEGORIA
     @GetMapping(path = "/busquedaPorCategoria")
+    @ResponseBody
     public ArrayList<Medicamento> findByCategory(@RequestParam String categoria) {
         return this.medicamentoService.findByCategory(categoria);
     }
 
     // by DESCRIPCION
     @GetMapping(path = "/busquedaPorDescripcion")
+    @ResponseBody
     public ArrayList<Medicamento> findByDescripcion(@RequestParam String descripcion) {
         return this.medicamentoService.findByDescripcion(descripcion);
     }

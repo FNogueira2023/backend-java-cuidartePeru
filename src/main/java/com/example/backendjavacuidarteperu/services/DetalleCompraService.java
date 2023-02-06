@@ -37,13 +37,13 @@ public class DetalleCompraService {
 
 
     // by PRECIOS_MAYORES_A
-    public ArrayList<DetalleCompra> findByPrecioIsGreaterThan(Integer precio) {
+    public ArrayList<DetalleCompra> findByPrecioIsGreaterThan(Float precio) {
         return this.detalleCompraRepository.findByPrecioIsGreaterThan(precio);
     }
 
 
     // by PRECIOS_MENORES_A
-    public ArrayList<DetalleCompra> findByStockIsLessThan(Integer precio) {
+    public ArrayList<DetalleCompra> findByStockIsLessThan(Float precio) {
         return this.detalleCompraRepository.findByPrecioIsLessThan(precio);
     }
 }

@@ -16,11 +16,13 @@ public class DetalleCompraController {
     DetalleCompraService detalleCompraService;
 
     @GetMapping()
+    @ResponseBody
     public ArrayList<DetalleCompra> findAll() {
         return this.detalleCompraService.findAll();
     }
 
     @GetMapping(path = "/{id}")
+    @ResponseBody
     public Optional<DetalleCompra> findOne(@PathVariable("id") Integer id) {
         return this.detalleCompraService.findOne(id);
     }
@@ -38,14 +40,16 @@ public class DetalleCompraController {
 
     // by PRECIOS_MAYORES_A
     @GetMapping(path = "/PreciosMayoresA")
-    public ArrayList<DetalleCompra> findByPrecioIsGreaterThan (@RequestParam  Integer precio) {
+    @ResponseBody
+    public ArrayList<DetalleCompra> findByPrecioIsGreaterThan (@RequestParam  Float precio) {
         return this.detalleCompraService.findByPrecioIsGreaterThan(precio);
     }
 
 
     // by PRECIOS_MENORES_A
     @GetMapping(path = "/PreciosMenoresA")
-    public ArrayList<DetalleCompra> findByStockIsLessThan (@RequestParam Integer precio) {
+    @ResponseBody
+    public ArrayList<DetalleCompra> findByStockIsLessThan (@RequestParam Float precio) {
         return this.detalleCompraService.findByStockIsLessThan(precio);
     }
 
